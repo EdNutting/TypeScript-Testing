@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "none",
+        "sourceMap": false,
+        "outDir": "../ts-js",
+        "outFile": "../ts-js/op_testing.js",
+        "noImplicitThis": true
+    }
+}
