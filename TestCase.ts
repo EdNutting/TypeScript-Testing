@@ -74,9 +74,13 @@ namespace op_testing {
 
         public listTestCases(): Array<string> {
             let results: Array<string> = [];
-            for (let func in this) {
-                if ((typeof(this[func]) === "function") && func.indexOf("test") === 0) {
-                    results.push(func);
+            let prototype = Object.getPrototypeOf(this);
+            let keys = Reflect.ownKeys(prototype);
+            for (let func of keys) {
+                if ((typeof (this[func]) === "function") &&
+                    (typeof func) === "string" &&
+                    (<string>func).indexOf("test") === 0) {
+                    results.push(<string>func);
                 }
             }
             return results;
